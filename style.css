@@ -1,0 +1,39 @@
+body {
+    min-height: 90vh;
+    background: url(img/Background.png);
+    background-size: 200px;
+    background-position:0px 0px ;
+    animation: backgroundd 1s infinite linear;
+}
+
+@keyframes backgroundd{
+    0% {background-position: 0px 0px;}
+    100% {background-position: 200px 165px;}
+}
+
+#titleScreen {
+    width: 800px;
+    position: absolute;
+    left: calc(50% - 430px);
+}
+
+#startBtn {
+    z-index: 91;
+    width: 500px;
+    position: Absolute;
+    left: calc(50% - 300px);
+    bottom: 0;
+    cursor: pointer;
+}
+
+#darkScreen {
+    z-index: 90;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    left: -2px;
+    top: -2px;
+    height: 100%;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
