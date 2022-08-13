@@ -8,9 +8,12 @@ startBtn.onclick = ()=> {
         setTimeout(()=> {
             startBtn.style.display ="none";
             setTimeout(()=> {
-                window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+                window.location.href = './smol-chick-anim.html';
             }, 100)
         }, 100)
     }, 1400)
     startBtn.src = "animations/btn-anim.gif"
 }
+
+//-------------------------
+
