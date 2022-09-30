@@ -1,6 +1,6 @@
 body {
     min-height: 90vh;
-    background: url(img/Background.png);
+    background: url(../img/Background.png);
     background-size: 200px;
     background-position:0px 0px ;
     animation: backgroundd 1s infinite linear;
