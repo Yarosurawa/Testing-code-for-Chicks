@@ -30,7 +30,7 @@ requestAnimationFrame(()=>{
         player.y += player.vy
 
         if(player.y + player.h + player.vy <= 899) {
-            player.vy += gravityd
+            player.vy += gravity
         } else {
             player.vy = 0
         }
