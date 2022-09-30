@@ -30,20 +30,16 @@ requestAnimationFrame(()=>{
         player.y += player.vy
 
         if(player.y + player.h + player.vy <= 899) {
-            player.vy += gravity
+            player.vy += gravityd
         } else {
             player.vy = 0
         }
 
         if(keys.right.pressed) {
             player.vx = speed
-        }
-
-        if(keys.left.pressed) {
+        } else if(keys.left.pressed) {
             player.vx = speed * -1
-        }
-
-        if(keys.right.pressed == false && keys.left.pressed == false) {
+        } else {
             player.vx = 0
         }
 
