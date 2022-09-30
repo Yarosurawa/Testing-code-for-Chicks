@@ -68,7 +68,9 @@ document.addEventListener("keydown", ({keyCode}) => {
 
         case 32:
         case 87:
-            player.vy -= jumpForce
+            if (player.y + player.h + player.vy >= 899) {
+                player.vy -= jumpForce
+            }
             break
     }
 })
