@@ -39,7 +39,7 @@ requestAnimationFrame(()=>{
             player.vx = speed
         } else if(keys.left.pressed) {
             player.vx = speed * -1
-        } else {
+        } else if (keys.right.pressed == true && keys.left.pressed == true || keys.right.pressed == false && keys.left.pressed == false){
             player.vx = 0
         }
 
