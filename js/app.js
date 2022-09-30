@@ -8,7 +8,7 @@ startBtn.onclick = ()=> {
         setTimeout(()=> {
             startBtn.style.display ="none";
             setTimeout(()=> {
-                window.location.href = './smol-chick-anim.html';
+                window.location.href = './movement.html';
             }, 100)
         }, 100)
     }, 1400)

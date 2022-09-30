@@ -1,0 +1,63 @@
+body {
+    height: 2000px;
+    margin: 0;
+    background: #212121;
+    overflow: hidden;
+}
+
+.ground {
+    position: absolute;
+    height: 1000%;
+    width: 100vw;
+    background: #111;
+    top: 900px;
+}
+
+#player {
+    background: #666;
+    position: absolute;
+}
+
+.bouncy {
+    position: absolute;
+    background: #171717;
+    border: #070707 double 7px;
+}
+
+.defo {
+    position: absolute;
+    background:#212121;
+    border: #111 solid 7px;
+}
+
+.p1 {
+    width: 100px;
+    height: 100px;
+    left: 600px;
+    top: 600px;
+}
+
+
+.p2 {
+    width: 400px;
+    height: 100px;
+    left: 800px;
+    top: 400px;
+}
+
+.end {
+    position: absolute;
+    background:#111;
+    width: 125px;
+    height: 225px;
+    left: 1000px;
+    z-index: -1;
+    top: 200px;
+}
+
+.p3 {
+    width: 100px;
+    height: 100px;
+    left: 400px;
+    top: 790px;
+}
