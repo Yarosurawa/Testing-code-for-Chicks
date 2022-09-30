@@ -40,7 +40,7 @@ requestAnimationFrame(()=>{
         } else if(keys.left.pressed) {
             player.vx = speed * -1
         } else {
-            player.vx = speed * -1
+            player.vx = 0
         }
 
         callback()
