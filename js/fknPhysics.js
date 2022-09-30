@@ -66,7 +66,8 @@ document.addEventListener("keydown", ({keyCode}) => {
             keys.right.pressed = true
             break
 
-        case 32 || 87:
+        case 32:
+        case 87:
             player.vy -= jumpForce
             break
     }
