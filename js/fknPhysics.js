@@ -4,12 +4,9 @@ var jumpForce = 16;
 
 var player = {
     elem: document.getElementById("player"),
-    h:200,
-    w:100,
-    x:100,
-    y:100,
-    vx:0,
-    vy:0
+    h:200, w:100, 
+    x:100, y:100,
+    vx:0, vy:0
 } 
 
 var keys = {
