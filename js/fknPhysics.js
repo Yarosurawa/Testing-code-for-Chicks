@@ -4,9 +4,12 @@ var jumpForce = 16;
 
 var player = {
     elem: document.getElementById("player"),
-    h:200, w:100, 
-    x:100, y:100,
-    vx:0, vy:0
+    h:200,
+    w:100,
+    x:100,
+    y:100,
+    vx:0,
+    vy:0
 } 
 
 var keys = {
@@ -37,7 +40,7 @@ requestAnimationFrame(()=>{
         } else if(keys.left.pressed) {
             player.vx = speed * -1
         } else {
-            player.vx = 0
+            player.vx = speed * -1
         }
 
         callback()
