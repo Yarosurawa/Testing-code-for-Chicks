@@ -18,6 +18,17 @@ body {
     position: absolute;
 }
 
+#enemy {
+    background: #633;
+    position: absolute;
+}
+
+.atk {
+    position: relative;
+    border: red solid 1px;
+    z-index: 4;
+}
+
 .bouncy {
     position: absolute;
     background: #171717;
@@ -60,4 +71,68 @@ body {
     height: 100px;
     left: 400px;
     top: 790px;
+}
+
+.ui {
+    top: 55px;
+    width: calc(100% - 4px);
+    border: green solid 1px;
+    position: absolute;
+    margin: 0;
+    height: 100px;
+}
+
+#menu-btn {
+    position: relative;
+    top: -30px;
+    left: calc(50% - 80px);
+    width: 60px;
+    height: 60px;
+    border: black solid 50px;
+}
+
+#player-hp-container {
+    position: absolute;
+    width: calc(50% - 50px);
+    height: 100px;
+    z-index: -1;
+    transform: rotateZ(180deg);
+}
+
+#enemy-hp-container {
+    position: absolute;
+    right: 0;
+    width: calc(50% - 50px);
+    height: 100px;
+    z-index: -1;
+    top: 0px;
+}
+
+#enemy-hp {
+    height: 100px;
+    transition: width 100ms ease-in-out;
+    background: red;
+}
+
+#player-hp {
+    height: 100px;
+    background: red;
+}
+
+#controls {
+    display: none;
+    position: absolute;
+    top: 200px;
+    font-size: 40px;
+    color: #fff;
+}
+
+.inv {
+    animation: inv 200ms infinite linear;
+}
+
+@keyframes inv {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
 }

@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="css/movement-html.css">
 </head>
 <body>
+    <h2 style="position: absolute;">type "h" to show/hide the controls</h2>
+    <div class="ui">
+        <div id="player-hp-container"><div id="player-hp"></div></div>
+        <div id="menu-btn"></div>
+        <div id="enemy-hp-container"><div id="enemy-hp"></div></div>
+        <div id="controls">A - move left <br>D - move right <br>Space/W - jump<br>Z - attack</div>
+    </div>
     <div id="player"></div>
+    <div id="enemy"></div>
     <div class="ground"></div>
-    <!-- <div class="bouncy p1"></div>
-    <div class="defo p2"></div>
-    <div class="defo p3"></div>
-    <div class="end"></div> -->
 
     <script src="js/fknPhysics.js"></script>
 </body>

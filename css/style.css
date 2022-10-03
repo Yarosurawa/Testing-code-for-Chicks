@@ -12,9 +12,9 @@ body {
 }
 
 #titleScreen {
-    width: 800px;
+    width: 30vw;
     position: absolute;
-    left: calc(50% - 430px);
+    left: 33vw;
 }
 
 #startBtn {
