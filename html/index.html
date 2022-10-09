@@ -8,9 +8,26 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <img id="titleScreen" src="img/Title-screen.png" alt="">
-    <img id="startBtn" src="img/btn.png" alt="Start Button">
+    <img id="titleScreen" src="../img/Title-screen.png" alt="">
+    <img id="startBtn" src="../img/btn.png" alt="Start Button">
     <div id="darkScreen"></div>
-    <script src="js/app.js"></script>
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const darkScreen = document.getElementById("darkScreen");
+
+        startBtn.onclick = ()=> {
+            setTimeout(()=> {
+                startBtn.style.zIndex = 
+                darkScreen.style.opacity = "1";
+                setTimeout(()=> {
+                    startBtn.style.display ="none";
+                    setTimeout(()=> {
+                        window.location.href = './level-chose.html';
+                    }, 100)
+                }, 100)
+            }, 1400)
+            startBtn.src = "../ing/UI/btn-anim.gif"
+        }
+    </script>
 </body>
 </html>
