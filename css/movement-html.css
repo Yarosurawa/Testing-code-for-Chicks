@@ -13,8 +13,19 @@ body {
     top: 900px;
 }
 
+.foreground {
+    z-index: -4;
+    position: absolute;
+    height: 1000%;
+    width: 100vw;
+    background: #171717;
+    top: 870px;
+}
+
 #player {
-    background: #666;
+    background: url(../img/player/Farmer-hd.png) no-repeat;
+    border: 1px solid black;
+    background-size: 100%;
     position: absolute;
 }
 
@@ -106,6 +117,14 @@ body {
     height: 100px;
     z-index: -1;
     top: 0px;
+}
+
+.rolling {
+    border: green dashed 1px;
+}
+
+.facingLeft {
+    transform: rotate3d(0, 1, 0, 180deg);
 }
 
 #enemy-hp {
