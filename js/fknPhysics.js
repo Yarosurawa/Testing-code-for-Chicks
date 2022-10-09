@@ -219,16 +219,16 @@ document.addEventListener("keydown", ({keyCode}) => {
                     moveLock = true;
                     player.elem.classList.add('rolling')
                     if (player.facingRight) { 
-                        player.vx = 20
+                        player.vx = 40
                     } else if (player.facingRight == false) {
-                        player.vx = -20
+                        player.vx = -40
                     }
                     setTimeout(()=>{
                         player.elem.classList.remove('rolling')
                         moveLock = false;
                         player.rolling = false
                         player.invincible = false;
-                    }, 600) 
+                    }, 200) 
                 }
                 break
         }
