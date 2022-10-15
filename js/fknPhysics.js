@@ -38,8 +38,10 @@ var enemy = {
     vx: 0,
     vy: 0,
     atk : {
-        dmg: 0
+        dmg: 10
     },
+    lock: false,
+    moving: false,
     facingRight: false,
     invincible:false,
     impres:true,
@@ -64,7 +66,7 @@ if (enemy.type == 'first') {
     enemy.x = 1700;
     enemy.y = 590;
     enemy.hurtMultiplayer = 5;
-    enemy.atk.dmg = 15;
+    enemy.atk.dmg = 20;
 }
 
 //----------------------not enemies---------------------------
@@ -103,12 +105,12 @@ requestAnimationFrame(()=>{
             }, 500)
         }
 
-        if (enemy.hp == 0) {
+        if (enemy.hp <= 0) {
             alert("Poor guy")
             enemy.elem.remove()
         }
         
-        if (player.hp == 0) {
+        if (player.hp <= 0) {
             alert("Lol You're dead")
             player.elem.remove();
         }
@@ -121,6 +123,12 @@ requestAnimationFrame(()=>{
 
         player.x += player.vx
         player.y += player.vy
+
+        if (player.x <= 0) {
+            player.x -= player.vx
+        } else if (player.x >= 1800) {
+            player.x -= player.vx
+        }
 
         if(player.y + player.h + player.vy <= 889) {
             player.vy += gravity
@@ -149,6 +157,10 @@ requestAnimationFrame(()=>{
             player.elem.classList.add('facingLeft')
         } else if (keys.right.pressed == false && keys.left.pressed == false && moveLock == false){
             player.vx = 0
+        }
+
+        if (enemy.moving && enemy.x < 0 || enemy.moving && enemy.x > 1800) {
+            enemy.vx = enemy.vx * -1
         }
 
         callback()
@@ -248,6 +260,57 @@ document.addEventListener("keyup", ({keyCode}) => {
     }
 })
 
-//-------------------Artificial-Intelegence------------------
-//How do am I going to make artificial intelegence, when I'm to unintelegent to spell intelegance
+//-------------------Artificial-Intelligence------------------
+//How am I going to make artificial intelligence, when I'm to unintelegent to spell intelegance
 
+if(enemy.type == "first") {
+    callbackArtifFirst();
+}
+
+function callbackArtifFirst() {
+    requestAnimationFrame(()=>{
+
+        if (enemy.x - 300 > player.x && !enemy.lock) {
+            enemy.vx = -5
+            enemy.moving = true;
+        } else if (enemy.x + enemy.w + 200 < player.x && !enemy.lock){
+            enemy.moving = true;
+            enemy.vx = 5
+        } else if (enemy.x - 300 < player.x && enemy.x > player.x && !enemy.lock) {
+            enemy.moving = false;
+            enemy.lock = true
+            enemy.vx = 0;
+            setTimeout(()=>{
+                enemy.moving = true;
+                enemy.h = 100
+                enemy.vx = -30
+                enemy.y = 739
+                setTimeout(()=>{
+                    enemy.h = 225
+                    enemy.moving = false;
+                    enemy.y = 659   
+                    enemy.vx = 0
+                    enemy.lock = false
+                }, 400);
+            }, 700);
+        } else if (enemy.x + enemy.w < player.x && enemy.x + enemy.w + 200 > player.x && !enemy.lock) {
+            enemy.lock = true
+            enemy.moving = false;
+            enemy.vx = 0;
+            setTimeout(()=>{
+                enemy.moving = true;
+                enemy.h = 100
+                enemy.vx = 30
+                enemy.y = 739
+                setTimeout(()=>{
+                    enemy.moving = false;
+                    enemy.h = 225
+                    enemy.y = 659
+                    enemy.vx = 0
+                    enemy.lock = false
+                }, 400);
+            }, 700);
+        }
+        callbackArtifFirst()
+    })
+}
