@@ -12,15 +12,32 @@
     <h2 style="position: absolute;">type "h" to show/hide the controls</h2>
     <div class="ui">
         <div id="player-hp-container"><div id="player-hp"></div></div>
-        <div id="menu-btn" onclick="window.location.href = './level-chose.html'"></div>
+        <div id="menu-btn" onclick="menuwindow()"></div>
         <div id="enemy-hp-container"><div id="enemy-hp"></div></div>
         <div id="controls">A / &#x2190 - move left <br>D / &#x2192 - move right <br>Space / W / &#x2191 - jump<br>Z / E - attack<br> shift - dodgeroll</div>
+    </div>
+    <div class="menu-ded">
+        <img src="../img/UI/menu-ded.png" usemap="#menu-map-ded">
+        <map name="menu-map-ded">
+            <area shape="rect" coords="820,480,1100,550" href="./first.html">
+            <area shape="rect" coords="780,570,1140,640" href="./level-chose.html">
+            <area shape="rect" coords="880,650,1040,720" href="./index.html">
+        </map>
+    </div>
+    <div class="menu">
+        <img src="../img/UI/menu.png" usemap="#menu-map">
+        <map name="menu-map">
+            <area shape="rect" coords="820,480,1100,550" onclick="menuwindow(false)">
+            <area shape="rect" coords="780,570,1140,640" href="./level-chose.html">
+            <area shape="rect" coords="880,650,1040,720" href="./index.html">
+        </map>
     </div>
     <div id="player"></div>
     <div id="enemy" enemy="dummy"></div>
     <div class="foreground"></div>
     <div class="ground"></div>
 
+    <script src="../js/menu-btn.js"></script>
     <script src="../js/fknPhysics.js"></script>
 </body>
 </html>

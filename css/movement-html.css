@@ -162,7 +162,7 @@ body {
 
 /*-----------------Menu-----------------------*/
 
-.menu {
+.menu-ded, .menu {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -172,9 +172,12 @@ body {
     width: 100vw;
     height: 100vh;
     background: #000a;
-    transition: opacity 1s ease;
 }
 
-.menu-img {
-    border: red 10px solid;
+.menu {
+    transition: opacity 300ms ease;
+}
+
+.menu-ded {
+    transition: opacity 1000ms ease;
 }
