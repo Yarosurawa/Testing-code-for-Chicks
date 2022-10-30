@@ -76,6 +76,7 @@ enemy.elem.style.height = enemy.h + "px"
 
 function callback() {
 requestAnimationFrame(()=>{
+    if(!isPaused) {
         if (attacking == true && player.x + player.atk.w >= enemy.x && player.x + player.atk.w <= enemy.x + enemy.w + player.atk.w && player.y >= enemy.y - player.w && enemy.invincible == false && player.facingRight == true || attacking == true && player.x + player.atk.w >= enemy.x + player.atk.w - enemy.w && player.x + player.atk.w <= enemy.x + player.atk.w *2&& player.y >= enemy.y - 100 && enemy.invincible == false && player.facingRight == false) {
             attacking = false
             enemy.hp -= player.atk.dmg * enemy.hurtMultiplayer;
@@ -111,8 +112,7 @@ requestAnimationFrame(()=>{
         }
         
         if (player.hp <= 0) {
-            alert("Lol You're dead")
-            player.elem.remove();
+            menuwindow(true)
         }
 
         player.hpElem.style.width = player.hp + "%"
@@ -162,9 +162,9 @@ requestAnimationFrame(()=>{
         if (enemy.moving && enemy.x < 0 || enemy.moving && enemy.x > 1800) {
             enemy.vx = enemy.vx * -1
         }
-
-        callback()
     }
+        callback()
+}
 )}
 
 //------------------------------------------------------------
