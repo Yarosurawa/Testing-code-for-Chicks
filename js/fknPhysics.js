@@ -107,8 +107,7 @@ requestAnimationFrame(()=>{
         }
 
         if (enemy.hp <= 0) {
-            alert("Poor guy")
-            enemy.elem.remove()
+            menuwindow(false, true)
         }
         
         if (player.hp <= 0) {
