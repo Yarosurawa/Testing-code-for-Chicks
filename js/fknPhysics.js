@@ -20,17 +20,18 @@ var player = {
     rolling:false,
     facingRight:true,
     invincible:false,
+    airBorne:false,
     atk: {
         w: 200,
         h: 100,
         dmg: 2
     },
     hp: 100,
-    hpElem: document.getElementById('player-hp')
+    stamina: 100,
+    staminalock: false,
+    hpElem: document.getElementById('player-hp'),
+    staminaElem: document.getElementById('player-stamina')
 } 
-
-player.elem.style.width = player.w + "px"
-player.elem.style.height = player.h + "px"
 
 var enemy = {
     elem: document.getElementById("enemy"),
@@ -46,7 +47,10 @@ var enemy = {
     invincible:false,
     impres:true,
     hp: 100,
-    hpElem: document.getElementById('enemy-hp')
+    stamina: 100,
+    staminalock: false,
+    hpElem: document.getElementById('enemy-hp'),
+    staminaElem: document.getElementById('enemy-stamina'),
 }
 
 //------------------------ENEMIES--------------------------------------
@@ -71,12 +75,29 @@ if (enemy.type == 'first') {
 
 //----------------------not enemies---------------------------
 
+function stlock(x) {
+    x.staminalock = true
+    setTimeout(()=>{
+        x.staminalock = false
+    }, 1000)
+}
+
 enemy.elem.style.width = enemy.w + "px"
 enemy.elem.style.height = enemy.h + "px"
 
 function callback() {
 requestAnimationFrame(()=>{
     if(!isPaused) {
+
+        player.staminaElem.style.width = player.stamina + "%"
+        enemy.staminaElem.style.width = enemy.stamina + "%"
+
+        if(!player.airBorne && player.stamina < 100 && !player.staminalock) {
+            player.stamina += 1
+        }
+
+        
+
         if (attacking == true && player.x + player.atk.w >= enemy.x && player.x + player.atk.w <= enemy.x + enemy.w + player.atk.w && player.y >= enemy.y - player.w && enemy.invincible == false && player.facingRight == true || attacking == true && player.x + player.atk.w >= enemy.x + player.atk.w - enemy.w && player.x + player.atk.w <= enemy.x + player.atk.w *2&& player.y >= enemy.y - 100 && enemy.invincible == false && player.facingRight == false) {
             attacking = false
             enemy.hp -= player.atk.dmg * enemy.hurtMultiplayer;
@@ -117,6 +138,8 @@ requestAnimationFrame(()=>{
         player.hpElem.style.width = player.hp + "%"
         enemy.hpElem.style.width = enemy.hp + "%"
 
+        
+
         player.elem.style.left = player.x + 'px'
         player.elem.style.top = player.y + 'px'
 
@@ -131,8 +154,10 @@ requestAnimationFrame(()=>{
 
         if(player.y + player.h + player.vy <= 889) {
             player.vy += gravity
+            player.airBorne = true
         } else {
             player.vy = 0
+            player.airBorne = false;
         }
 
         enemy.elem.style.left = enemy.x + 'px'
@@ -192,15 +217,18 @@ document.addEventListener("keydown", ({keyCode}) => {
                 break
             case 90:
             case 69:
-                if(moveLock == false) {
-                    attacking = true
+                if(moveLock == false && player.stamina > 30) {
+                    player.stamina -= 40;
+                    stlock(player);
+                    attacking = true;
                     player.elem.innerHTML = "<div class='atk'></div>"
                     document.querySelector(".atk").style.width = player.atk.w + "px"
                     document.querySelector(".atk").style.height = player.atk.h + "px"
                     setTimeout(()=>{
+                        moveLock = false;
                         attacking = false
                         player.elem.innerHTML = ""
-                    }, 150)
+                    }, 300)
                 }
                 break
             case 37:
@@ -218,13 +246,17 @@ document.addEventListener("keydown", ({keyCode}) => {
             case 38:
             case 32:
             case 87:
-                if (player.y + player.h + player.vy >= 889) {
+                if (player.y + player.h + player.vy >= 889 && player.stamina > 20) {
+                    player.stamina -= 30
+                    stlock(player);
                     player.vy -= jumpForce
                 }
                 break
             
             case 16:
-                if(player.rolling == false && moveLock == false) {
+                if(player.rolling == false && moveLock == false && player.stamina > 40) {
+                    player.stamina -= 50
+                    stlock(player);
                     player.invincible = true;
                     player.rolling = true;
                     moveLock = true;

@@ -27,10 +27,11 @@ body {
 }
 
 #player {
-    background: url(../img/player/Farmer-hd.png) no-repeat;
-    border: 1px solid black;
-    background-size: 100%;
+    background: url(../img/player/Farmer.png) no-repeat;
+    background-size: 104%;
     position: absolute;
+    width: 200px;
+    height: 225px;
 }
 
 #enemy {
@@ -42,12 +43,6 @@ body {
     position: relative;
     border: red solid 1px;
     z-index: 4;
-}
-
-.bouncy {
-    position: absolute;
-    background: #171717;
-    border: #070707 double 7px;
 }
 
 .defo {
@@ -91,7 +86,6 @@ body {
 .ui {
     top: 55px;
     width: calc(100% - 4px);
-    border: green solid 1px;
     position: absolute;
     margin: 0;
     height: 100px;
@@ -108,6 +102,7 @@ body {
 
 #player-hp-container {
     position: absolute;
+    top: 5px;
     width: calc(50% - 50px);
     height: 100px;
     z-index: -1;
@@ -116,6 +111,7 @@ body {
 
 #enemy-hp-container {
     position: absolute;
+    top: 55px;
     right: 0;
     width: calc(50% - 50px);
     height: 100px;
@@ -128,19 +124,26 @@ body {
 }
 
 .facingLeft {
-    transform: rotate3d(0, 1, 0, 180deg);
+    transform: rotate3d(0, 1, 0, 180deg) translateX(100px);
 }
 
 #enemy-hp {
-    height: 100px;
+    height: 80px;
     transition: width 100ms ease-in-out;
     background: red;
 }
 
 #player-hp {
-    height: 100px;
+    height: 80px;
     background: red;
 }
+
+#player-stamina, #enemy-stamina {
+    border: 2px black solid;
+    height: 20px;
+    background-color: green;
+}
+
 
 #controls {
     display: none;
