@@ -71,7 +71,7 @@ if (enemy.type == 'first') {
     enemy.x = 1700;
     enemy.y = 590;
     enemy.hurtMultiplayer = 5;
-    enemy.atk.dmg = 20;
+    enemy.atk.dmg = 10;
     enemy.staminaMult = 0.5;
 }
 
@@ -354,9 +354,15 @@ function callbackArtifFirst() {
         } else if (enemy.x + enemy.w < player.x && !enemy.lock && enemy.stamina <= 50) {
             enemy.vx = -5
             enemy.moving = true;
+            if(enemy.x < 0) {
+                enemy.vx = 0
+            }
         } else if (enemy.x > player.x + player.w && !enemy.lock && enemy.stamina <= 50) {
             enemy.vx = 5
             enemy.moving = true;
+            if(enemy.x + enemy.w > 1800) {
+                enemy.vx = 0
+            }
         }
         callbackArtifFirst()
     })
