@@ -48,6 +48,7 @@ var enemy = {
     impres:true,
     hp: 100,
     stamina: 100,
+    staminaMult: 0,
     staminalock: false,
     hpElem: document.getElementById('enemy-hp'),
     staminaElem: document.getElementById('enemy-stamina'),
@@ -71,6 +72,7 @@ if (enemy.type == 'first') {
     enemy.y = 590;
     enemy.hurtMultiplayer = 5;
     enemy.atk.dmg = 20;
+    enemy.staminaMult = 0.5;
 }
 
 //----------------------not enemies---------------------------
@@ -95,6 +97,10 @@ requestAnimationFrame(()=>{
         if(!player.airBorne && player.stamina < 100 && !player.staminalock) {
             player.stamina += 1
         }
+
+        if(!enemy.staminalock && enemy.stamina < 100) {
+            enemy.stamina += 1 * enemy.staminaMult
+       }
 
         
 
@@ -301,17 +307,19 @@ if(enemy.type == "first") {
 function callbackArtifFirst() {
     requestAnimationFrame(()=>{
 
-        if (enemy.x - 300 > player.x && !enemy.lock) {
+        if (enemy.x - 300 > player.x && !enemy.lock && enemy.stamina > 30) {
             enemy.vx = -5
             enemy.moving = true;
-        } else if (enemy.x + enemy.w + 200 < player.x && !enemy.lock){
+        } else if (enemy.x + enemy.w + 200 < player.x && !enemy.lock && enemy.stamina > 30){
             enemy.moving = true;
             enemy.vx = 5
-        } else if (enemy.x - 300 < player.x && enemy.x > player.x && !enemy.lock) {
+        } else if (enemy.x - 300 < player.x && enemy.x > player.x && !enemy.lock && enemy.stamina > 30) {
             enemy.moving = false;
             enemy.lock = true
             enemy.vx = 0;
             setTimeout(()=>{
+                enemy.stamina -= 40
+                stlock(enemy)
                 enemy.moving = true;
                 enemy.h = 100
                 enemy.vx = -30
@@ -324,11 +332,13 @@ function callbackArtifFirst() {
                     enemy.lock = false
                 }, 400);
             }, 700);
-        } else if (enemy.x + enemy.w < player.x && enemy.x + enemy.w + 200 > player.x && !enemy.lock) {
+        } else if (enemy.x + enemy.w < player.x && enemy.x + enemy.w + 200 > player.x && !enemy.lock && enemy.stamina > 30) {
             enemy.lock = true
             enemy.moving = false;
             enemy.vx = 0;
             setTimeout(()=>{
+                enemy.stamina -= 40
+                stlock(enemy)
                 enemy.moving = true;
                 enemy.h = 100
                 enemy.vx = 30
@@ -341,6 +351,12 @@ function callbackArtifFirst() {
                     enemy.lock = false
                 }, 400);
             }, 700);
+        } else if (enemy.x + enemy.w < player.x && !enemy.lock && enemy.stamina <= 50) {
+            enemy.vx = -5
+            enemy.moving = true;
+        } else if (enemy.x > player.x + player.w && !enemy.lock && enemy.stamina <= 50) {
+            enemy.vx = 5
+            enemy.moving = true;
         }
         callbackArtifFirst()
     })
