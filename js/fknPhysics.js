@@ -321,11 +321,9 @@ function callbackArtifFirst() {
                 enemy.stamina -= 40
                 stlock(enemy)
                 enemy.moving = true;
-                enemy.h = 100
                 enemy.vx = -30
-                enemy.y = 739
+                enemy.y = 800
                 setTimeout(()=>{
-                    enemy.h = 225
                     enemy.moving = false;
                     enemy.y = 659   
                     enemy.vx = 0
@@ -340,12 +338,10 @@ function callbackArtifFirst() {
                 enemy.stamina -= 40
                 stlock(enemy)
                 enemy.moving = true;
-                enemy.h = 100
                 enemy.vx = 30
-                enemy.y = 739
+                enemy.y = 800
                 setTimeout(()=>{
                     enemy.moving = false;
-                    enemy.h = 225
                     enemy.y = 659
                     enemy.vx = 0
                     enemy.lock = false
