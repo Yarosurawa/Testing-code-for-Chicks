@@ -35,7 +35,8 @@ body {
 }
 
 #enemy {
-    background: #633;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
 }
 

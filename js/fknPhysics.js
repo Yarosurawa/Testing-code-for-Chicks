@@ -57,12 +57,13 @@ var enemy = {
 //------------------------ENEMIES--------------------------------------
 
 if (enemy.type == 'dummy') {
-    enemy.h = 225;
+    enemy.h = 200;
     enemy.w = 100;
     enemy.x = 900;
-    enemy.y = 590;
+    enemy.y = 680;
     enemy.hurtMultiplayer = 5;
     enemy.atk.dmg = 1;
+    enemy.elem.style.backgroundImage = "url(../img/enemies/dummy/Dummy.png)"
 }
 
 if (enemy.type == 'first') {
