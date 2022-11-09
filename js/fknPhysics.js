@@ -74,6 +74,7 @@ if (enemy.type == 'first') {
     enemy.hurtMultiplayer = 5;
     enemy.atk.dmg = 10;
     enemy.staminaMult = 0.5;
+    enemy.elem.style.backgroundColor = "#911"
 }
 
 //----------------------not enemies---------------------------
