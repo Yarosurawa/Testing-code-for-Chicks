@@ -223,8 +223,8 @@ document.addEventListener("keydown", ({keyCode}) => {
                 break
             case 90:
             case 69:
-                if(moveLock == false && player.stamina > 30) {
-                    player.stamina -= 40;
+                if(moveLock == false && player.stamina > 15) {
+                    player.stamina -= 25;
                     stlock(player);
                     attacking = true;
                     player.elem.innerHTML = "<div class='atk'></div>"
