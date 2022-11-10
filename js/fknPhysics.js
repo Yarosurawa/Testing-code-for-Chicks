@@ -29,6 +29,7 @@ var player = {
     hp: 100,
     stamina: 100,
     staminalock: false,
+    stLockCount: 0,
     hpElem: document.getElementById('player-hp'),
     staminaElem: document.getElementById('player-stamina')
 } 
@@ -49,6 +50,7 @@ var enemy = {
     hp: 100,
     stamina: 100,
     staminaMult: 0,
+    stLockCount: 0,
     staminalock: false,
     hpElem: document.getElementById('enemy-hp'),
     staminaElem: document.getElementById('enemy-stamina'),
@@ -79,10 +81,15 @@ if (enemy.type == 'first') {
 
 //----------------------not enemies---------------------------
 
+
 function stlock(x) {
+    x.stLockCount++;
     x.staminalock = true
     setTimeout(()=>{
-        x.staminalock = false
+        if(x.stLockCount < 2) {
+            x.staminalock = false
+        }
+        x.stLockCount--;
     }, 1000)
 }
 
