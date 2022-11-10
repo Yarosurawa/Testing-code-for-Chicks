@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Level chooser</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<svg width="500">
+		<rect width="100" height="100" x="10" style="fill: #444;" id="btn-1" />
+		<text fill="#ffffff" font-size="45" font-family="Verdana" x="45" y="65" id="btn-1txt">1</text>
+		<rect width="100" height="100" x="130" style="fill: #444;" id="btn-2" />
+		<text fill="#ffffff" font-size="45" font-family="Verdana" x="165" y="65" id="btn-2txt">2</text>
+		<rect width="100" height="100" x="250" style="fill: #444;" id="btn-3"/>
+		<text fill="#ffffff" font-size="45" font-family="Verdana" x="285" y="65" id="btn-3txt">3</text>
+	</svg>
+
+	<script>
+		const btn1 = document.getElementById('btn-1')
+		const btn2 = document.getElementById('btn-2')
+		const btn3 = document.getElementById('btn-3')
+		const btn1txt = document.getElementById('btn-1txt')
+		const btn2txt = document.getElementById('btn-2txt')
+		const btn3txt = document.getElementById('btn-3txt')
+
+		btn1.onclick = function(){
+			window.location.href = "./movement.html"
+		}
+
+		btn2.onclick = function(){
+			window.location.href = "./first.html"
+		}
+
+		btn3.onclick = function(){
+			window.location.href = "./smol-chick-anim.html"
+		}
+
+		btn1txt.onclick = function(){
+			window.location.href = "./movement.html"
+		}
+
+		btn2txt.onclick = function(){
+			window.location.href = "./first.html"
+		}
+
+		btn3txt.onclick = function(){
+			window.location.href = "./smol-chick-anim.html"
+		}
+	</script>
+</body>
+</html>

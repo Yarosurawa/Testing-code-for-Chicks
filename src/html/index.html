@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <img id="titleScreen" src="../img/Title-screen.png" alt="">
+    <img id="startBtn" src="../img/btn.png" alt="Start Button">
+    <div id="darkScreen"></div>
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const darkScreen = document.getElementById("darkScreen");
+
+        startBtn.onclick = ()=> {
+            setTimeout(()=> {
+                startBtn.style.zIndex = 
+                darkScreen.style.opacity = "1";
+                setTimeout(()=> {
+                    startBtn.style.display ="none";
+                    setTimeout(()=> {
+                        window.location.href = './level-chose.html';
+                    }, 100)
+                }, 100)
+            }, 1400)
+            startBtn.src = "../img/UI/btn-anim.gif";
+        }
+    </script>
+</body>
+</html>
