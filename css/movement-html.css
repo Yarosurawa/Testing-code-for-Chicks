@@ -1,0 +1,187 @@
+.hidden {
+    opacity: 0;
+}
+
+body {
+    height: 2000px;
+    margin: 0;
+    background: #212121;
+    overflow: hidden;
+}
+
+.ground {
+    position: absolute;
+    height: 1000%;
+    width: 100vw;
+    background: #111;
+    top: 900px;
+}
+
+.foreground {
+    z-index: -4;
+    position: absolute;
+    height: 1000%;
+    width: 100vw;
+    background: #171717;
+    top: 870px;
+}
+
+#player {
+    background: url(../img/player/Farmer.png) no-repeat;
+    background-size: 104%;
+    position: absolute;
+    width: 200px;
+    height: 225px;
+}
+
+#enemy {
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.atk {
+    position: relative;
+    border: red solid 1px;
+    z-index: 4;
+}
+
+.defo {
+    position: absolute;
+    background:#212121;
+    border: #111 solid 7px;
+}
+
+.p1 {
+    width: 100px;
+    height: 100px;
+    left: 600px;
+    top: 600px;
+}
+
+
+.p2 {
+    width: 400px;
+    height: 100px;
+    left: 800px;
+    top: 400px;
+}
+
+.end {
+    position: absolute;
+    background:#111;
+    width: 125px;
+    height: 225px;
+    left: 1000px;
+    z-index: -1;
+    top: 200px;
+}
+
+.p3 {
+    width: 100px;
+    height: 100px;
+    left: 400px;
+    top: 790px;
+}
+
+.ui {
+    top: 55px;
+    width: calc(100% - 4px);
+    position: absolute;
+    margin: 0;
+    height: 100px;
+}
+
+#menu-btn {
+    position: relative;
+    top: -30px;
+    left: calc(50% - 80px);
+    width: 60px;
+    height: 60px;
+    border: black solid 50px;
+}
+
+#player-hp-container {
+    position: absolute;
+    top: 5px;
+    width: calc(50% - 50px);
+    height: 100px;
+    z-index: -1;
+    transform: rotateZ(180deg);
+}
+
+#enemy-hp-container {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: calc(50% - 50px);
+    height: 100px;
+    z-index: -1;
+    top: 0px;
+}
+
+.rolling {
+    border: green dashed 1px;
+}
+
+.facingLeft {
+    transform: rotate3d(0, 1, 0, 180deg) translateX(100px);
+}
+
+#enemy-hp {
+    height: 80px;
+    transition: width 100ms ease-in-out;
+    background: red;
+}
+
+#player-hp {
+    height: 80px;
+    background: red;
+}
+
+#player-stamina, #enemy-stamina {
+    border: 2px black solid;
+    height: 20px;
+    background-color: green;
+}
+
+
+#controls {
+    display: none;
+    position: absolute;
+    top: 200px;
+    font-size: 40px;
+    color: #fff;
+}
+
+.inv {
+    animation: inv 200ms infinite linear;
+}
+
+@keyframes inv {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/*-----------------Menu-----------------------*/
+
+.menu-ded, .menu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000a;
+}
+
+.menu {
+    transition: opacity 300ms ease;
+}
+
+.menu-ded {
+    transition: opacity 1000ms ease;
+}
